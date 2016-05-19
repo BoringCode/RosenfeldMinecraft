@@ -12,11 +12,22 @@ foreach($required_config as $key) {
 	if (!array_key_exists($key, $config)) throw new Exception("Please configure the application before running");
 }
 
-// Load all the servers
-$servers = array();
-foreach ($config["hosts"] as $port => $host) {
-	$servers[$host . ":" . $port] = MinecraftServerStatus\MinecraftServerStatus::query($host, intval($port));
+function loadServers($hosts) {
+	$servers = array();
+	foreach ($hosts as $host => $ports) {
+		//Check if a list of ports (rather than a single port)
+		if (is_array($ports)) {
+			foreach($ports as $port) {
+				$servers[$host . ":" . $port] = MinecraftServerStatus\MinecraftServerStatus::query($host, intval($port));
+			}
+		} else {
+			$servers[$host . ":" . $ports] = MinecraftServerStatus\MinecraftServerStatus::query($host, intval($ports));
+		}
+	}
+	return $servers;	
 }
+
+$servers = loadServers($config["hosts"]);
 
 // Get templates 
 $loader = new Twig_Loader_Filesystem("templates");

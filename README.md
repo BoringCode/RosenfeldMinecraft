@@ -25,7 +25,9 @@ title = Your title
 description = Your description
 
 [hosts]
-port = your.domain.here
+your.domain.here = port
+multiple.servers.com[] = port1
+multiple.servers.com[] = port2
 ```
 
 Launch the application and navigate to it in your web browser.
