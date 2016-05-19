@@ -1,0 +1,31 @@
+{
+  "name": "rosenfeldminecraft",
+  "version": "1.0.0",
+  "description": "A simple status page for my minecraft server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoringCode/RosenfeldMinecraft.git"
+  },
+  "author": "Bradley Rosenfeld",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BoringCode/RosenfeldMinecraft/issues"
+  },
+  "homepage": "https://github.com/BoringCode/RosenfeldMinecraft#readme",
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.6",
+    "grunt": "^0.4.5",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^1.1.0",
+    "load-grunt-tasks": "^3.4.1",
+    "node-sass": "^3.4.2",
+    "autoprefixer": "^6.3.3",
+    "cssnano": "^3.5.2",
+    "pixrem": "^3.0.0"
+  }
+}

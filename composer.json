@@ -1,0 +1,6 @@
+{
+    "require": {
+        "funnyitselmo/minecraftserverstatus": "^1.0",
+        "twig/twig": "~1.0"
+    }
+}
