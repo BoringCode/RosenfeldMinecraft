@@ -1,3 +1,4 @@
+{% spaceless %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -47,7 +48,7 @@
 									{% if server %}
 										{{ server.players | e }}/{{ server.max_players | e }}
 									{% else %}
-										0/0
+										<span class="text-muted">0/0</span>
 									{% endif %}
 								</td>
 							</tr>
@@ -63,3 +64,4 @@
 		</div>
 	</body>
 </html>
+{% endspaceless %}

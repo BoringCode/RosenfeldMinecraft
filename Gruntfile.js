@@ -50,5 +50,6 @@ module.exports = function(grunt) {
 	})
 
 	grunt.registerTask('default', ['dev', 'watch'])
-	grunt.registerTask('dev', ['sass', 'postcss', 'copy'])
+	grunt.registerTask('dev', ['sass', 'copy'])
+	grunt.registerTask('build', ['dev', 'postcss'])
 }
