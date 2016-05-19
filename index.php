@@ -27,6 +27,7 @@ function loadServers($hosts) {
 	return $servers;	
 }
 
+// Load in an array of MinecraftServerStatus objects
 $servers = loadServers($config["hosts"]);
 
 // Get templates 
