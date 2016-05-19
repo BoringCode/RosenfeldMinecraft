@@ -20,6 +20,10 @@ $ npm install
 Configure the application in `config.ini`. Add the Minecraft servers you would like to keep track of.
 
 ```ini
+[info]
+title = Your title
+description = Your description
+
 [hosts]
 your.domain.here = port
 ```

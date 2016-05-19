@@ -7,17 +7,19 @@ require 'vendor/autoload.php';
 
 $config = parse_ini_file("config.ini", true);
 
-if (!array_key_exists("hosts", $config)) throw new Exception("Please configure the application before running");
-
+$required_config = array("hosts", "info");
+foreach($required_config as $key) {
+	if (!array_key_exists($key, $config)) throw new Exception("Please configure the application before running");
+}
 
 // Load all the servers
 $servers = array();
-foreach ($config["hosts"] as $host => $port) {
-	array_push($servers, MinecraftServerStatus\MinecraftServerStatus::query($host, $port));
+foreach ($config["hosts"] as $port => $host) {
+	$servers[$host . ":" . $port] = MinecraftServerStatus\MinecraftServerStatus::query($host, intval($port));
 }
 
 // Get templates 
 $loader = new Twig_Loader_Filesystem("templates");
 $twig = new Twig_Environment($loader);
 
-echo $twig->render("index.html", array("servers" => $servers));
+echo $twig->render("index.html", array("info" => $config["info"], "servers" => $servers));

@@ -3,12 +3,63 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<title>Rosenfeld Minecraft</title>
+		<title>{{ info.title }}</title>
+		<link rel="stylesheet" href="assets/css/main.css">
 	</head>
 	<body>
-		<h1>Rosenfeld Minecraft</h1>
-		{% for server in servers %}
-			<p>{{ server.hostname }}</p>
-		{% endfor %}
+		<div class="container">
+			<header class="header">
+				<h2 class="text-muted">{{ info.title | e }}</h2>
+				<p>{{ info.description | raw }}</p>
+			</header>
+			<div class="main">
+				<div class="table-responsive">
+					<table class="table ">
+						<thead>
+							<tr>
+								<th class="status">Status</th>
+								<th class="motd">Server</th>
+								<th>Players</th>
+							</tr>
+						</thead>
+						<tbody>
+						{% for host, server in servers %}
+							<tr>
+								<td>
+									{% if server %}
+									<span class="badge badge-success">
+										<i class="fa fa-check icon-white" aria-hidden="true"></i> 
+										{{ server.ping | e }}ms (ping), {{ server.version | e }} (version)
+									</span>
+									{% else %}
+									<span class="badge badge-danger">
+										<i class="fa fa-times icon-white" aria-hidden="true"></i>
+										Down
+									</span>
+									{% endif %}
+								<td>
+									<code>{{ host | e }}</code>
+									{% if server %}
+										&mdash; {{ server.description.text | e }}
+									{% endif %}
+								</td>
+								<td>
+									{% if server %}
+										{{ server.players | e }}/{{ server.max_players | e }}
+									{% else %}
+										0/0
+									{% endif %}
+								</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<footer class="footer">
+				<hr>
+				<p>&copy; {{ "now" | date("Y") }} {{ info.title }}</p>
+			</footer>
+		</div>
 	</body>
 </html>

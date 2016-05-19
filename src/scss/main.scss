@@ -1,3 +1,25 @@
 // Some comment
 
-@import "_bootstrap"
+@import "_bootstrap";
+
+@import "font-awesome";
+
+body {
+	padding: 2em 0;
+}
+
+.container {
+	max-width: 850px;
+}
+
+.main {
+	margin: 2em 0;
+}
+
+.badge-success {
+	background-color: $brand-success;
+}
+
+.badge-danger {
+	background-color: $brand-danger;
+}
