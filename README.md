@@ -25,7 +25,7 @@ title = Your title
 description = Your description
 
 [hosts]
-your.domain.here = port
+port = your.domain.here
 ```
 
 Launch the application and navigate to it in your web browser.
