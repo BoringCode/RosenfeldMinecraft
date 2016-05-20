@@ -7,6 +7,7 @@ A simple status page for my [Minecraft server](https://minecraft.rosenfeld.xyz)
 - PHP 5.5+
 - Composer
 - NPM
+- Grunt
 
 ## Setup
 
@@ -28,6 +29,11 @@ description = Your description
 your.domain.here = port
 multiple.servers.com[] = port1
 multiple.servers.com[] = port2
+```
+
+Build the frontend dependencies
+```bash
+$ grunt build
 ```
 
 Launch the application and navigate to it in your web browser.
