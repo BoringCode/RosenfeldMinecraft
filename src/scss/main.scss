@@ -23,3 +23,14 @@ body {
 .badge-danger {
 	background-color: $brand-danger;
 }
+
+.favicon {
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+    max-width: 48px;
+    height: auto;
+}
+
+.table-responsive > .table > thead > tr > th, .table-responsive > .table > thead > tr > td, .table-responsive > .table > tbody > tr > th, .table-responsive > .table > tbody > tr > td, .table-responsive > .table > tfoot > tr > th, .table-responsive > .table > tfoot > tr > td {
+    white-space: inherit;
+}

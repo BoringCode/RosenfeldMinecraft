@@ -39,9 +39,12 @@
 									</span>
 									{% endif %}
 								<td>
+                                    {% if server and server.favicon %}
+                                        <img src="{{ server.favicon}}" class="pull-left favicon">
+                                    {% endif %}
 									<code>{{ host | e }}</code>
 									{% if server %}
-										&mdash; {{ server.description.text | e }}
+                                    <p>{{ server.description.text | raw }}</p>
 									{% endif %}
 								</td>
 								<td>
